@@ -8,6 +8,8 @@ import SearchFeed from './pages/SearchFeed';
 import Upload from './pages/Upload';
 import Profile from './pages/Profile';
 
+import WatchHistory from './pages/WatchHistory';
+
 const Placeholder = ({ title }) => (
   <div className="flex-1 p-8 text-white bg-emerald-slate-bg h-full flex items-center justify-center">
     <div className="text-center">
@@ -28,7 +30,7 @@ const App = () => {
       <Route path="/upload" element={<Upload />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/subscriptions" element={<Placeholder title="Subscriptions" />} />
-      <Route path="/history" element={<Placeholder title="History" />} />
+      <Route path="/history" element={<WatchHistory />} />
       <Route path="/liked" element={<Placeholder title="Liked Videos" />} />
       <Route path="/settings" element={<Placeholder title="Settings" />} />
     </Routes>

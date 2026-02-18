@@ -20,14 +20,17 @@ const SearchFeed = () => {
     totalPages
   } = usePaginationWithTokens(async (token) => {
     const params = {
+      part: 'snippet',
+      q: searchTerm,
       type: 'video',
-      maxResults: 12
+      maxResults: 25
     };
     if (token) params.pageToken = token;
     const data = await fetchFromGoogleAPI('search', params);
     return {
       data: data?.items || [],
-      nextToken: data?.nextPageToken || null
+      nextToken: data?.nextPageToken || null,
+      pageInfo: data?.pageInfo || null
     };
   });
 

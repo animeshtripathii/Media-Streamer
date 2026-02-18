@@ -1,7 +1,7 @@
 import React from 'react';
 import { fetchFromGoogleAPI } from '../utils/fetchFromGoogleAPI';
 import { useNavigate } from 'react-router-dom';
-import usePaginationWithTokens from '../components/usePaginationWithTokens';
+import usePaginationWithTokens from '../hooks/usePaginationWithTokens';
 
 const Home = () => {
     const navigate = useNavigate();
@@ -30,7 +30,7 @@ const Home = () => {
         return {
             data: data?.items || [],
             nextToken: data?.nextPageToken || null,
-            pageInfo: data?.pageInfo || null // <--- Pass this to the hook
+            pageInfo: data?.pageInfo || null 
         };
     });
 

@@ -7,7 +7,9 @@ const Navbar = () => {
     const [showHistory, setShowHistory] = useState(false);
     const navigate = useNavigate();
 
+    // Load history from localStorage every time the dropdown is shown
     useEffect(() => {
+        if (!showHistory) return;
         const historyRaw = localStorage.getItem('searchHistory');
         let history = [];
         if (historyRaw) {
@@ -16,14 +18,17 @@ const Navbar = () => {
             } catch {}
         }
         setSearchHistory(history);
-    }, []);
+    }, [showHistory]);
     const filteredHistory = useMemo(() => {
         const now = Date.now();
         return searchHistory.filter(h => {
-            if (typeof h === 'string') return true; 
-            return h && h.term && h.age && (now - h.age < 7 * 24 * 60 * 60 * 1000);
+            const term = typeof h === 'string' ? h : h.term;
+            // Filter by age (7 days) AND match search term
+            const isRecent = typeof h === 'string' ? true : (h.age && (now - h.age < 7 * 24 * 60 * 60 * 1000));
+            const matchesSearch = term.toLowerCase().includes(searchTerm.toLowerCase());
+            return isRecent && matchesSearch;
         });
-    }, [searchHistory]);
+    }, [searchHistory, searchTerm]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
