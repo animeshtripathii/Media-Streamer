@@ -58,7 +58,7 @@ A video streaming application built with React, leveraging the YouTube Data API 
 
 1.  **Environment Variables**:
     -   Create a `.env` file in the root.
-    -   Add your RapidAPI/YouTube API key: `VITE_RAPID_API_KEY=your_key_here`.
+    -   Add your RapidAPI/YouTube API key: `VITE_Google_API_KEY=your_key_here`.
 
 2.  **Installation**:
     ```bash
