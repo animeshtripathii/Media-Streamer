@@ -20,7 +20,7 @@ const Trending = () => {
         const params = {
             part: 'snippet,contentDetails,statistics',
             chart: 'mostPopular',
-            regionCode: 'IN',
+            regionCode: 'US',
             maxResults: 12
         };
         if (token) params.pageToken = token;

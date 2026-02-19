@@ -17,7 +17,7 @@ A video streaming application built with React, leveraging the YouTube Data API 
 
 | Route | Component | Description |
 | :--- | :--- | :--- |
-| `/` | `Home` | Landing page displaying popular videos. |
+| `/` | `HomeScroll` | Landing page displaying popular videos with infinite scroll. |
 | `/trending` | `Trending` | Displays trending content. |
 | `/search/:searchTerm` | `SearchFeed` | Shows search results for the given query. |
 | `/watch/:id` | `Watch` | The video player page. |
@@ -33,7 +33,7 @@ A video streaming application built with React, leveraging the YouTube Data API 
 
 ### Pages (`src/pages`)
 
--   **`Home.jsx`**: Fetches and displays a grid of popular videos. Implements pagination using `usePaginationWithTokens`.
+-   **`HomeScroll.jsx`**: Fetches and displays a grid of popular videos. Implements infinite scroll using `usePaginationWithTokens`.
 -   **`Trending.jsx`**: Fetches and displays trending videos using the YouTube API's `mostPopular` chart.
 -   **`SearchFeed.jsx`**: Captures the search term from the URL and displays matching video results.
 -   **`Watch.jsx`**: The detailed video player page. It plays the video using an iframe, displays video statistics, and shows a list of recommended videos on the side (or bottom on mobile). It also saves the video to `localStorage` history.

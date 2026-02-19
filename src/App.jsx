@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from "./components/Layout";
 import Home from './pages/Home';
+import HomeScroll from './pages/HomeScroll';
 import Trending from './pages/Trending';
 import Watch from './pages/Watch';
 import SearchFeed from './pages/SearchFeed';
@@ -23,7 +24,7 @@ const App = () => {
   return (
    <Layout>
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<HomeScroll />} />
       <Route path="/trending" element={<Trending/>} />
       <Route path="/search/:searchTerm" element={<SearchFeed />} />
       <Route path="/watch/:id" element={<Watch />} />
